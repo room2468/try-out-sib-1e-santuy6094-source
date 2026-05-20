@@ -1,11 +1,13 @@
 #!/bin/env bash
 
-# HINT: You can test the result of script using following command
-# echo "1+1" | ./calculator
+# Read expression
+read -r a op b
 
-# Read expression from stdin
-read -r expression 
-
-result=$(echo "$expression" | bc)
-
-echo "$result"
+case "$op" in
+  +) echo $((a + b)) ;;
+  -) echo $((a - b)) ;;
+  \*) echo $((a * b)) ;;
+  /) echo $((a / b)) ;;
+  %) echo $((a % b)) ;;
+  *) echo "Operator tidak valid" ;;
+esac
